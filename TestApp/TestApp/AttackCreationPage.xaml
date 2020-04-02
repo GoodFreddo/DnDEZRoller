@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TestApp.AttackCreationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="AttackNameEntry"  Placeholder="Type an attack name here..."/>
+            <Picker x:Name="ModifierPicker" Title="Select Attack Modifier" />
+            <Picker x:Name="DicePicker" Title="Select Damage Dice" />
+            <Grid>
+                <Label Text =" Are you proficient in this attack?" VerticalTextAlignment="Center"/>
+                <CheckBox Grid.Column="1" x:Name="IsProficient" CheckedChanged="IsProficient_Clicked"/>
+            </Grid>
+            <Picker x:Name="ProficiencyPicker" Title="Select Proficiency Modifier" IsVisible="False" SelectedItem="0"/>
+            <Button x:Name="DoneAddAttackButton" Text="Done" Clicked="DoneAddAttackButton_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
