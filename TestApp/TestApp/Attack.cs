@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestApp
+﻿namespace TestApp
 {
     public class Attack
     {
         static Dice D20Dice = new Dice(20);
         Dice damageDice;
-        int modifier;
+        int modifier,proficiency;
         bool isAtAdvantage = false;
-        public Attack(int DiceSize, int Modifier)
+        public Attack(int DiceSize, int Modifier, int Proficiency)
         {
             damageDice = new Dice(DiceSize);
             modifier = Modifier;
+            proficiency = Proficiency;
         }
         public int rollforAttack()
         {
-            var bestRoll = D20Dice.RollDice() + modifier;
+            var bestRoll = D20Dice.RollDice() + modifier +proficiency;
             if (isAtAdvantage)
             {
-                var secondRoll = D20Dice.RollDice() + modifier;
+                var secondRoll = D20Dice.RollDice() + modifier+proficiency;
                 if (secondRoll > bestRoll)
                 { bestRoll = secondRoll; }
             }
@@ -29,7 +26,7 @@ namespace TestApp
 
         public int rollforDamage()
         {
-            return damageDice.RollDice()+modifier;
+            return damageDice.RollDice() + modifier;
         }
     }
 }

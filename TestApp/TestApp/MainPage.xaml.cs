@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace TestApp
@@ -14,7 +12,7 @@ namespace TestApp
     public partial class MainPage : ContentPage
     {
         //Test variables
-        public static Attack testAttack = new Attack(6, 3);
+        public static Attack testAttack = new Attack(6, 3,2);
         public static List<AttackPage> attacks = new List<AttackPage>() { new AttackPage("One", testAttack), new AttackPage("Two", testAttack), new AttackPage("3333", testAttack) };
         //todo remove above
         public MainPage()
@@ -35,7 +33,7 @@ namespace TestApp
         }
         async void AddAttackListItem(ListView list)
         {
-            await Navigation.PushModalAsync( new AttackCreationPage());
+            await Navigation.PushModalAsync(new AttackCreationPage());
             //list.ItemsSource = attacks.ToList();
         }
         async void ListOfAttacks_ItemTapped(object sender, ItemTappedEventArgs e)

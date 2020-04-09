@@ -1,9 +1,4 @@
-﻿using Android.Webkit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,8 +26,8 @@ namespace TestApp
 
         private void HitButton_Clicked(object sender, EventArgs e)
         {
-            AttackHitScore.Text="To Hit: "+_attack.rollforAttack().ToString();
-            AttackDamageScore.Text = "Damage: "+_attack.rollforDamage().ToString();
+            AttackHitScore.Text = "To Hit: " + _attack.rollforAttack().ToString();
+            AttackDamageScore.Text = "Damage: " + _attack.rollforDamage().ToString();
         }
     }
 }
