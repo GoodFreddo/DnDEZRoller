@@ -12,9 +12,9 @@ namespace TestApp
     public partial class MainPage : ContentPage
     {
         //Test variables
-        public static Attack testAttack = new Attack(6, 3,2);
-        public static List<AttackPage> attacks = new List<AttackPage>() { new AttackPage("One", testAttack), new AttackPage("Two", testAttack), new AttackPage("3333", testAttack) };
-        //todo remove above
+        
+        public static List<CharacterPage> characters = new List<CharacterPage>() {new CharacterPage("Henry"), new CharacterPage("Bob"), new CharacterPage("Timmy") };
+        //todo remove initialisation of above
         public MainPage()
         {
             InitializeComponent();
@@ -23,22 +23,22 @@ namespace TestApp
         //put update on load stuff here later
         protected override void OnAppearing()
         {
-            ListOfAttacks.ItemsSource = attacks.ToList();
+            ListOfCharacters.ItemsSource = characters.ToList();
 
         }
 
-        void AddAttackButton_Clicked(object sender, EventArgs e)
+        void AddCharacterButton_Clicked(object sender, EventArgs e)
         {
-            AddAttackListItem(ListOfAttacks);
+            AddCharacterListItem(ListOfCharacters);
         }
-        async void AddAttackListItem(ListView list)
+        async void AddCharacterListItem(ListView list)
         {
-            await Navigation.PushModalAsync(new AttackCreationPage());
-            //list.ItemsSource = attacks.ToList();
+            await Navigation.PushModalAsync(new CharacterCreationPage());
+            list.ItemsSource = characters.ToList();
         }
-        async void ListOfAttacks_ItemTapped(object sender, ItemTappedEventArgs e)
+        async void ListOfCharacters_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(e.Item as AttackPage);
+            await Navigation.PushAsync(e.Item as CharacterPage);
         }
     }
 }

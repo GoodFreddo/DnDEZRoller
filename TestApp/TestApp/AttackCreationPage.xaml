@@ -8,13 +8,18 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="AttackNameEntry"  Placeholder="Type an attack name here..."/>
-            <Picker x:Name="ModifierPicker" Title="Select Attack Modifier" />
-            <Picker x:Name="DicePicker" Title="Select Damage Dice" />
+            <Label Text="Select Attack Modifier"/>
+            <Picker x:Name="ModifierPicker" Title="" />
+            <Label Text="Select Damage Dice"/>
+            <Picker x:Name="DicePicker" Title="" />
             <Grid>
                 <Label Text =" Are you proficient in this attack?" VerticalTextAlignment="Center"/>
                 <CheckBox Grid.Column="1" x:Name="IsProficient" CheckedChanged="IsProficient_Clicked"/>
             </Grid>
-            <Picker x:Name="ProficiencyPicker" Title="Select Proficiency Modifier" IsVisible="False" SelectedItem="0"/>
+            <StackLayout x:Name="ProficiencyStack" IsVisible="False">
+                <Label Text="Select Proficiency Modifier"/>
+                <Picker x:Name="ProficiencyPicker" />
+            </StackLayout>
             <Button x:Name="DoneAddAttackButton" Text="Done" Clicked="DoneAddAttackButton_Clicked" />
         </StackLayout>
     </ContentPage.Content>

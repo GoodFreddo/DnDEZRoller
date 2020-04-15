@@ -10,17 +10,22 @@ namespace TestApp
     {
         public string AttackName { get; set; }
         private Attack _attack { get; set; }
-        public AttackPage(string attackName, Attack attack)
+        private CharacterPage _parent;
+        
+
+        public AttackPage(string attackName, Attack attack, CharacterPage parent)
         {
             InitializeComponent();
             AttackNameLabel.Text = attackName;
             AttackNameToolbarItem.Text = attackName;
             AttackName = attackName;
             _attack = attack;
+            _parent = parent;
         }
+
         async void AttackDeleteToolbarItem_Clicked(object sender, EventArgs e)
         {
-            MainPage.attacks.Remove(this);
+            _parent.attacks.Remove(this);
             await Navigation.PopAsync();
         }
 

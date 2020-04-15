@@ -5,18 +5,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TestApp.MainPage">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="MainPageToolbarTitle" Text="EZ-Roller"/>
+        
+    </ContentPage.ToolbarItems>
     <StackLayout>
         <!-- Place new controls here -->
 
         
-        <Button x:Name="AddAttackButton" Text="Add Attack" Clicked="AddAttackButton_Clicked" />
+        <Button x:Name="AddCharacterButton" Text="Add Character" Clicked="AddCharacterButton_Clicked" />
         
 
-        <ListView x:Name="ListOfAttacks" ItemTapped="ListOfAttacks_ItemTapped">
+        <ListView x:Name="ListOfCharacters" ItemTapped="ListOfCharacters_ItemTapped">
             <ListView.ItemTemplate >
                 <DataTemplate >
-                    <TextCell Text="{Binding AttackName}" ClassId="AttackListItem"  TextColor="Black"/>
+                    <TextCell Text="{Binding CharacterName}" ClassId="CharacterListItem"  TextColor="Black"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
