@@ -12,15 +12,17 @@ namespace TestApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterPage : ContentPage
     {
+        public Character _character;
         public string CharacterName { get; set; }
         public Attack testAttack = new Attack(6, 3, 2);
         public List<AttackPage> attacks = new List<AttackPage>();
 
-        public CharacterPage(string characterName)
+        public CharacterPage(Character character)
         {
             InitializeComponent();
-            CharacterName = characterName;
-            CharcterNameToolbarItem.Text = characterName;
+            CharacterName = character.characterName;
+            CharcterNameToolbarItem.Text = character.characterName;
+            _character = character;
             //test data
             AttackPage[] attackPages = { new AttackPage("One", testAttack, this), new AttackPage("Two", testAttack, this), new AttackPage("3333", testAttack, this) };
             attacks.AddRange(attackPages);

@@ -12,59 +12,34 @@ namespace TestApp
 
     public partial class AttackCreationPage : ContentPage
     {
-        private int? _diceSize;
-        Dictionary<string, int> Dice = new Dictionary<string, int>() { { "D2", 2 }, { "D3", 3 }, { "D4", 4 }, { "D6", 6 }, { "D8", 8 }, { "D12", 12 } };
-        CharacterPage _parentCharacter;
+        readonly Dictionary<string, int> Dice = new Dictionary<string, int>() { { "D2", 2 }, { "D3", 3 }, { "D4", 4 }, { "D6", 6 }, { "D8", 8 }, { "D12", 12 } };
 
-        public AttackCreationPage(CharacterPage parentCharcter)
+        CharacterPage _parentCharacterPage;
+
+        public AttackCreationPage(CharacterPage parentCharcterPage)
         {
             InitializeComponent();
 
-            ModifierPicker.ItemsSource = SetSortedpickerNumbers(-5, 10);
+            ModifierPicker.ItemsSource = parentCharcterPage._character.modifiers.Keys.ToList();
 
-            ProficiencyPicker.ItemsSource = ConstructProficiencyList();
-            ProficiencyPicker.SelectedItem = 0;
+
             DicePicker.ItemsSource = Dice.Keys.ToList();
-            _parentCharacter = parentCharcter;
+            _parentCharacterPage = parentCharcterPage;
         }
-
-        private IList ConstructProficiencyList()
-        {
-            var proficiencyList = SetSortedpickerNumbers(0, 6);
-            proficiencyList.Remove(1);
-            return proficiencyList;
-        }
-
-        private List<int> SetSortedpickerNumbers(int start, int end)
-        {
-            var numberList = Enumerable.Range(start, end + 1 - start).ToList();
-            numberList.Reverse();
-            return numberList;
-        }
-
-        void IsProficient_Clicked(object sender, EventArgs e)
-        {
-            ProficiencyStack.IsVisible = IsProficient.IsChecked;
-            if (!IsProficient.IsChecked) { ProficiencyPicker.SelectedItem = 0; }
-        }
-
 
         async void DoneAddAttackButton_Clicked(object sender, EventArgs e)
         {
 
-            if (ModifierPicker.SelectedItem != null && DicePicker.SelectedItem != null)
-            {
-                int.TryParse(ProficiencyPicker.SelectedItem.ToString(), out int _proficiency);
-                int.TryParse(ModifierPicker.SelectedItem.ToString(), out int _modifier);
-                _diceSize = Dice[DicePicker.SelectedItem.ToString()];
-                if (!string.IsNullOrEmpty(AttackNameEntry.Text) && _diceSize != null)
-                {
-                    
-                    var newAttackPage = new AttackPage(AttackNameEntry.Text, new Attack(_diceSize ?? 0, _modifier, _proficiency),_parentCharacter);
 
-                    _parentCharacter.attacks.Add(newAttackPage);
-                    await Navigation.PopModalAsync();
-                }
+
+            if (ModifierPicker.SelectedItem != null && DicePicker.SelectedItem != null && !string.IsNullOrEmpty(AttackNameEntry.Text))
+            {
+                int _modifier = _parentCharacterPage._character.modifiers[(string)ModifierPicker.SelectedItem];
+                int _proficiency = IsProficient.IsChecked ? _parentCharacterPage._character.proficiencyBonus : 0;
+                int _diceSize = Dice[DicePicker.SelectedItem.ToString()];
+                var newAttackPage = new AttackPage(AttackNameEntry.Text, new Attack(_diceSize, _modifier, _proficiency), _parentCharacterPage); ;
+                _parentCharacterPage.attacks.Add(newAttackPage);
+                await Navigation.PopModalAsync();
             }
             else return;
 

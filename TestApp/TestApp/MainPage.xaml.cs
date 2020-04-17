@@ -11,13 +11,16 @@ namespace TestApp
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        //Test variables
-        
-        public static List<CharacterPage> characters = new List<CharacterPage>() {new CharacterPage("Henry"), new CharacterPage("Bob"), new CharacterPage("Timmy") };
-        //todo remove initialisation of above
+
+
+
+        public static List<CharacterPage> characters = new List<CharacterPage>() { new CharacterPage(new Character($"Character1", 16, 15, 10, 10, 8, 10, 1)) };
+        // 
+
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         //put update on load stuff here later

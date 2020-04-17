@@ -24,7 +24,7 @@
             return bestRoll;
         }
 
-        public int rollforDamage()
+        public int RollforDamage()
         {
             return damageDice.RollDice() + modifier;
         }

@@ -14,12 +14,9 @@
             <Picker x:Name="DicePicker" Title="" />
             <Grid>
                 <Label Text =" Are you proficient in this attack?" VerticalTextAlignment="Center"/>
-                <CheckBox Grid.Column="1" x:Name="IsProficient" CheckedChanged="IsProficient_Clicked"/>
+                <CheckBox Grid.Column="1" x:Name="IsProficient" />
             </Grid>
-            <StackLayout x:Name="ProficiencyStack" IsVisible="False">
-                <Label Text="Select Proficiency Modifier"/>
-                <Picker x:Name="ProficiencyPicker" />
-            </StackLayout>
+            
             <Button x:Name="DoneAddAttackButton" Text="Done" Clicked="DoneAddAttackButton_Clicked" />
         </StackLayout>
     </ContentPage.Content>

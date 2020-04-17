@@ -10,29 +10,29 @@ namespace TestApp
     {
         public string AttackName { get; set; }
         private Attack _attack { get; set; }
-        private CharacterPage _parent;
+        private CharacterPage _characterPageParent;
         
 
-        public AttackPage(string attackName, Attack attack, CharacterPage parent)
+        public AttackPage(string attackName, Attack attack, CharacterPage characterPageParent)
         {
             InitializeComponent();
             AttackNameLabel.Text = attackName;
             AttackNameToolbarItem.Text = attackName;
             AttackName = attackName;
             _attack = attack;
-            _parent = parent;
+            _characterPageParent = characterPageParent;
         }
 
         async void AttackDeleteToolbarItem_Clicked(object sender, EventArgs e)
         {
-            _parent.attacks.Remove(this);
+            _characterPageParent.attacks.Remove(this);
             await Navigation.PopAsync();
         }
 
         private void HitButton_Clicked(object sender, EventArgs e)
         {
             AttackHitScore.Text = "To Hit: " + _attack.rollforAttack().ToString();
-            AttackDamageScore.Text = "Damage: " + _attack.rollforDamage().ToString();
+            AttackDamageScore.Text = "Damage: " + _attack.RollforDamage().ToString();
         }
     }
 }
