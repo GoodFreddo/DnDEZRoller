@@ -88,9 +88,9 @@
     <Content Include="Resources\drawable\delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestApp\TestApp.csproj">
-      <Project>{93A48EBA-259C-4C05-944A-BA454C2EB1A8}</Project>
-      <Name>TestApp</Name>
+    <ProjectReference Include="..\TestApp\DnDEZRoller.csproj">
+      <Project>{2F7C8306-E962-42D3-8945-50A8FA512BA8}</Project>
+      <Name>DnDEZRoller</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
