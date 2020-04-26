@@ -6,7 +6,7 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestApp
+namespace DnDEZRoller
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 

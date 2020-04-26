@@ -1,4 +1,4 @@
-﻿namespace TestApp
+﻿namespace DnDEZRoller
 {
     public class Attack
     {

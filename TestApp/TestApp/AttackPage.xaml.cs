@@ -3,7 +3,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestApp
+namespace DnDEZRoller
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AttackPage : ContentPage

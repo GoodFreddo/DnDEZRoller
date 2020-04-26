@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace TestApp.iOS
+namespace DnDEZRoller.iOS
 {
     public class Application
     {

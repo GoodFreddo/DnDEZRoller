@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace TestApp
+namespace DnDEZRoller
 {
     public partial class App : Application
     {
