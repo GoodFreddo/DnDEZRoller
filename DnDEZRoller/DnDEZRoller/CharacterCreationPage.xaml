@@ -7,9 +7,22 @@
              x:Class="DnDEZRoller.CharacterCreationPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="CharacterNameEntry"  Placeholder="Type your character's name here..."/>
+            <Label Text="Select Strength Value"/>
+            <Picker x:Name="StrengthValuePicker" Title="" />
+            <Label Text="Select Dexterity Value"/>
+            <Picker x:Name="DexterityValuePicker" Title="" />
+            <Label Text="Select Constitution Value"/>
+            <Picker x:Name="ConstitutionValuePicker" Title="" />
+            <Label Text="Select Wisdom Value"/>
+            <Picker x:Name="WisdomValuePicker" Title="" />
+            <Label Text="Select Intelligence Value"/>
+            <Picker x:Name="IntelligenceValuePicker" Title="" />
+            <Label Text="Select Charisma Value"/>
+            <Picker x:Name="CharismaValuePicker" Title="" />
+            <Label Text="Select Character Level"/>
+            <Picker x:Name="CharacterLevelValuePicker" Title="" />
+            <Button x:Name="CharacterDoneButton" Text="Done" Clicked="CharacterDoneButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

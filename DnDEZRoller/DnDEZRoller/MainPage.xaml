@@ -10,12 +10,7 @@
         
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <!-- Place new controls here -->
-
-        
         <Button x:Name="AddCharacterButton" Text="Add Character" Clicked="AddCharacterButton_Clicked" />
-        
-
         <ListView x:Name="ListOfCharacters" ItemTapped="ListOfCharacters_ItemTapped">
             <ListView.ItemTemplate >
                 <DataTemplate >

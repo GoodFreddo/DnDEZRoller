@@ -19,19 +19,13 @@ namespace DnDEZRoller
         public AttackCreationPage(CharacterPage parentCharcterPage)
         {
             InitializeComponent();
-
             ModifierPicker.ItemsSource = parentCharcterPage._character.modifiers.Keys.ToList();
-
-
             DicePicker.ItemsSource = Dice.Keys.ToList();
             _parentCharacterPage = parentCharcterPage;
         }
 
         async void DoneAddAttackButton_Clicked(object sender, EventArgs e)
         {
-
-
-
             if (ModifierPicker.SelectedItem != null && DicePicker.SelectedItem != null && !string.IsNullOrEmpty(AttackNameEntry.Text))
             {
                 int _modifier = _parentCharacterPage._character.modifiers[(string)ModifierPicker.SelectedItem];
