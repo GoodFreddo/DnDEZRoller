@@ -11,7 +11,7 @@ namespace DnDEZRoller
         public string AttackName { get; set; }
         private Attack _attack { get; set; }
         private CharacterPage _characterPageParent;
-        
+
 
         public AttackPage(string attackName, Attack attack, CharacterPage characterPageParent)
         {

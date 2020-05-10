@@ -20,7 +20,7 @@ namespace DnDEZRoller
         public MainPage()
         {
             InitializeComponent();
-            
+
         }
 
         //put update on load stuff here later

@@ -4,7 +4,7 @@
     {
         static Dice D20Dice = new Dice(20);
         Dice damageDice;
-        int modifier,proficiency;
+        int modifier, proficiency;
         bool isAtAdvantage = false;
         public Attack(int DiceSize, int Modifier, int Proficiency)
         {
@@ -14,10 +14,10 @@
         }
         public int rollforAttack()
         {
-            var bestRoll = D20Dice.RollDice() + modifier +proficiency;
+            var bestRoll = D20Dice.RollDice() + modifier + proficiency;
             if (isAtAdvantage)
             {
-                var secondRoll = D20Dice.RollDice() + modifier+proficiency;
+                var secondRoll = D20Dice.RollDice() + modifier + proficiency;
                 if (secondRoll > bestRoll)
                 { bestRoll = secondRoll; }
             }
